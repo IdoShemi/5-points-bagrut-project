@@ -12,7 +12,10 @@ namespace WebProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                
+            }
         }
 
         protected void Selectbutton(object sender, EventArgs e)

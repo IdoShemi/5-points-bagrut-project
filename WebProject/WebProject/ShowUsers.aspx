@@ -12,6 +12,10 @@
         <div>
             <div class="btn33Container">
                 <asp:Button class="button-33" ID="Button1" runat="server" Text="לחץ להצגת משתמשים" OnClick="Selectbutton" />
+                
+                <asp:DropDownList ID="showUsersList" runat="server">
+                </asp:DropDownList>
+                
             </div>
         </div>
     </form>
