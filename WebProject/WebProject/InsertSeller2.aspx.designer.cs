@@ -11,7 +11,7 @@ namespace WebProject
 {
 
 
-    public partial class InsertUser
+    public partial class InsertSeller2
     {
 
         /// <summary>
@@ -24,58 +24,67 @@ namespace WebProject
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// InsertName control.
+        /// UserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InsertName;
+        protected global::System.Web.UI.WebControls.TextBox UserName;
 
         /// <summary>
-        /// InsertFirstName control.
+        /// SellerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InsertFirstName;
+        protected global::System.Web.UI.WebControls.TextBox SellerName;
 
         /// <summary>
-        /// InsertLastName control.
+        /// InsPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InsertLastName;
+        protected global::System.Web.UI.WebControls.TextBox InsPass;
 
         /// <summary>
-        /// InsertPass control.
+        /// Phone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InsertPass;
+        protected global::System.Web.UI.WebControls.TextBox Phone;
 
         /// <summary>
-        /// InsertPhone control.
+        /// Mymail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InsertPhone;
+        protected global::System.Web.UI.WebControls.TextBox Mymail;
 
         /// <summary>
-        /// InsertMail control.
+        /// BankAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InsertMail;
+        protected global::System.Web.UI.WebControls.TextBox BankAccount;
+
+        /// <summary>
+        /// avgDelivery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox avgDelivery;
 
         /// <summary>
         /// InsertCity control.
@@ -94,50 +103,5 @@ namespace WebProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox InsertAddress;
-
-        /// <summary>
-        /// RadioButton1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
-
-        /// <summary>
-        /// RadioButton2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
-
-        /// <summary>
-        /// birthDay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox birthDay;
-
-        /// <summary>
-        /// birthMonth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox birthMonth;
-
-        /// <summary>
-        /// birthYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox birthYear;
     }
 }

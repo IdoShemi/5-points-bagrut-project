@@ -27,9 +27,9 @@ namespace WebProject
                 if (RadioButton1.Checked) gender = "male";
                 else gender = "female";
 
-                string sqlstring = " INSERT INTO users (myusername,mypassword, mybirthdate, myemail, mygender, myphonenumber, mycity, myaddress) VALUES "
+                string sqlstring = " INSERT INTO users (myusername,mypassword, mybirthdate, myemail, mygender, myphonenumber, mycity, myaddress, myname, mylastname) VALUES "
                                 + "('" + InsertName.Text + "','" + InsertPass.Text + "','" + birthDay.Text+'/'+ birthMonth.Text+'/'+ birthYear.Text + "','" +
-                                InsertMail.Text + "','" + gender + "','" + InsertPhone.Text + "','" + InsertCity.Text+ "','" + InsertAddress.Text+ "');";
+                                InsertMail.Text + "','" + gender + "','" + InsertPhone.Text + "','" + InsertCity.Text+ "','" + InsertAddress.Text+ "','" + InsertFirstName.Text + "','" + InsertLastName.Text + "');";
 
                 Con1.Open();
                 OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);

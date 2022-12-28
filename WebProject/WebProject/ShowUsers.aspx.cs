@@ -31,11 +31,14 @@ namespace WebProject
             if (Dr.HasRows)
             {
                 int count = 0;
-                string tableResponse = "<table><tr style='background:#ddd;'><td>username</td><td>email</td><td>gender</td><td>phonenumber</td></tr>";
+                string tableResponse = "<table><tr style='background:#ddd;'><td>username</td><td>email</td><td>gender</td><td>" +
+                    "phonenumber</td><td>firstname</td><td>lastname</td><td>city</td><td>address</td><td>birthday</td></tr>";
                 do
                 {
                     tableResponse += $"<tr><td>{Dr["myusername"].ToString()}</td><td>" +
-                        $"{Dr["myemail"].ToString()}</td><td>{Dr["mygender"].ToString()}<td>{Dr["myphonenumber"].ToString()}</td></tr>";
+                        $"{Dr["myemail"].ToString()}</td><td>{Dr["mygender"].ToString()}<td>{Dr["myphonenumber"].ToString()}</td>" +
+                        $"<td>{Dr["myname"].ToString()}</td><td>{Dr["mylastname"].ToString()}</td><td>{Dr["mycity"].ToString()}</td>" +
+                        $"<td>{Dr["myaddress"].ToString()}</td><td>{Dr["mybirthdate"].ToString().Substring(0,10)}</td></tr>";
                     count++;
                 }
                 while (Dr.Read());

@@ -11,7 +11,7 @@ namespace WebProject
 {
 
 
-    public partial class InsertUser
+    public partial class UpdateUser
     {
 
         /// <summary>

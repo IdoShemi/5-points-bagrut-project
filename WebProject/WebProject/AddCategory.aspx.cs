@@ -35,8 +35,16 @@ namespace WebProject
                 //  OleDbCommand cmd = null;
                 Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\database.accdb";
 
+                Con1.Open();
+                string sqlstring_getcodenumber = "SELECT categorycode FROM categories ORDER BY categorycode DESC";
+                OleDbCommand cmd1 = new OleDbCommand(sqlstring_getcodenumber, Con1);
+                OleDbDataReader Dr = cmd1.ExecuteReader();
+                Dr.Read();
+                int newcodenumber = Convert.ToInt32(Dr["categorycode"])+1;
+                Con1.Close();
 
-                string sqlstring = " INSERT INTO categories (mycategoryname) VALUES " + "('" + CatText.Text + "');";
+
+                string sqlstring = $" INSERT INTO categories (mycategoryname, categorycode) VALUES('{ CatText.Text}', '{newcodenumber}');";
 
                 Con1.Open();
                 OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);
@@ -60,7 +68,16 @@ namespace WebProject
                 //  OleDbCommand cmd = null;
                 Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\database.accdb";
 
-                string sqlstring = " INSERT INTO subcategories (mycatergoryname , mysubcategoryname) VALUES " + "('" + showcategories.SelectedValue + "','" + subCatText.Text +"');";
+                Con1.Open();
+                string sqlstring_getcodenumber = "SELECT subcategorycode FROM subcategories ORDER BY subcategorycode DESC";
+                OleDbCommand cmd1 = new OleDbCommand(sqlstring_getcodenumber, Con1);
+                OleDbDataReader Dr = cmd1.ExecuteReader();
+                Dr.Read();
+                int newcodenumber = Convert.ToInt32(Dr["subcategorycode"]) + 1;
+                Con1.Close();
+
+
+                string sqlstring = " INSERT INTO subcategories (mycatergoryname , mysubcategoryname, subcategorycode) VALUES " + "('" + showcategories.SelectedValue + "','" + subCatText.Text +"','"+newcodenumber+"')";
 
                 Con1.Open();
                 OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);
