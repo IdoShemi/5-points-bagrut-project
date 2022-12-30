@@ -15,7 +15,7 @@ namespace WebProject
             if (!IsPostBack)
             {
                 OleDbConnection Con1 = new OleDbConnection();
-                Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\database.accdb";
+                Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
                 Con1.Open();
                 string sqlstring = "SELECT mycategoryname FROM categories";
                 OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);

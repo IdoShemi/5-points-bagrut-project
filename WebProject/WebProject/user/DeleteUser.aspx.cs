@@ -18,7 +18,7 @@ namespace WebProject
         protected void Delbutton(object sender, EventArgs e)
         {
             OleDbConnection Con1 = new OleDbConnection();
-            Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\database.accdb";
+            Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
             Con1.Open();
             string sqlstring = "DELETE * FROM users WHERE myusername='" + Delbox.Text + "';";
             OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);

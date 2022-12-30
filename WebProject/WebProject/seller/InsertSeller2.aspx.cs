@@ -21,7 +21,7 @@ namespace WebProject
             {
                 OleDbConnection Con1 = new OleDbConnection();
                 //  OleDbCommand cmd = null;
-                Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\database.accdb";
+                Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
 
 
                 Con1.Open();
