@@ -30,9 +30,9 @@
 
 
             <span class="inputText">תאריך לידה:</span>
-            <asp:TextBox ID="birthDay" runat="server" Width="55px" Text="day"></asp:TextBox>
-            <asp:TextBox ID="birthMonth" runat="server" Width="47px" Text="month"> </asp:TextBox>
-            <asp:TextBox ID="birthYear" runat="server" Width="89px" Text="year"></asp:TextBox>
+            <asp:DropDownList ID="days" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="months" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="years" runat="server"></asp:DropDownList>
             <br />
             <asp:Button runat="server" Text="לחץ להוספה" OnClick="Insertbutton" />
         </div>

@@ -10,9 +10,58 @@ namespace WebProject
 {
     public partial class UpdateUser : System.Web.UI.Page
     {
+        enum Months
+        {
+            January = 1,    // 0
+            February,   // 1
+            March,      // 2
+            April,      // 3
+            May,        // 4
+            June,       // 5
+            July,        // 6
+            August,       // 7
+            September,       // 8
+            October,       // 9
+            November,       // 10
+            December       // 11
+
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                OleDbConnection Con1 = new OleDbConnection();
+                Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
 
+
+                Con1.Open();
+                string sqlstring = "SELECT myday FROM datestbl WHERE myday BETWEEN 1 AND 31;";
+                OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);
+                OleDbDataReader Dr = cmd.ExecuteReader();
+                days.DataSource = Dr;
+                days.DataTextField = "myday";
+                days.DataBind();
+                Con1.Close();
+
+                Con1.Open();
+                sqlstring = "SELECT mymonth FROM datestbl WHERE NOT mymonth ='' ";
+                cmd = new OleDbCommand(sqlstring, Con1);
+                Dr = cmd.ExecuteReader();
+                monthsDdl.DataSource = Dr;
+                monthsDdl.DataTextField = "mymonth";
+                monthsDdl.DataBind();
+                Con1.Close();
+
+                Con1.Open();
+                sqlstring = "SELECT myyear FROM datestbl WHERE myyear BETWEEN 1920 AND 2023 ORDER BY myyear DESC;";
+                cmd = new OleDbCommand(sqlstring, Con1);
+                Dr = cmd.ExecuteReader();
+                years.DataSource = Dr;
+                years.DataTextField = "myyear";
+                years.DataBind();
+                Con1.Close();
+            }
         }
 
         
@@ -28,7 +77,7 @@ namespace WebProject
                 if (RadioButton1.Checked) gender = "male";
                 else gender = "female";
 
-                string sqlstring = $"UPDATE users SET mypassword = '{InsertPass.Text}', mybirthdate = '{birthDay.Text + '/' + birthMonth.Text + '/' + birthYear.Text}" +
+                string sqlstring = $"UPDATE users SET mypassword = '{InsertPass.Text}', mybirthdate = '{days.SelectedValue + '/' + monthsDdl.SelectedValue + '/' + years.SelectedValue}" +
                     $"', myemail = '{InsertMail.Text}', mygender = '{gender}', myphonenumber = '{InsertPhone.Text}', myaddress ='{InsertAddress.Text}', " +
                     $"mycity='{InsertCity.Text}', myname='{InsertFirstName.Text}', mylastname='{InsertLastName.Text}' WHERE myusername ='{InsertName.Text}'";
 
@@ -50,7 +99,7 @@ namespace WebProject
         protected void UpdateValuesbutton(object sender, EventArgs e)
         {
             OleDbConnection Con1 = new OleDbConnection();
-            Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\database.accdb";
+            Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
             Con1.Open();
             string sqlstring = "SELECT * FROM users WHERE myusername = '" + InsertName.Text+"';";
 
@@ -70,14 +119,21 @@ namespace WebProject
                 InsertMail.Text = Dr["myemail"].ToString();
                 InsertCity.Text = Dr["mycity"].ToString();
                 InsertAddress.Text = Dr["myaddress"].ToString();
-                birthDay.Text = Dr["mybirthdate"].ToString().Substring(0,2);
-                birthMonth.Text = Dr["mybirthdate"].ToString().Substring(3, 2);
-                birthYear.Text = Dr["mybirthdate"].ToString().Substring(6, 4);
+                years.SelectedIndex = Math.Abs(Convert.ToInt32(Dr["mybirthdate"].ToString().Substring(6, 4)) - 2023);
+
+                string monthName = Dr["mybirthdate"].ToString().Split('/')[1];
+                Months month = (Months)System.Enum.Parse(typeof(Months), monthName);
+                int monthValue = (int)month-1;
+                monthsDdl.SelectedIndex = monthValue;
+
+                days.SelectedIndex = Math.Abs(Convert.ToInt32(Dr["mybirthdate"].ToString().Substring(0, 2)) - 1);
+
+                //Convert.ToInt32(Dr["mybirthdate"].ToString().Substring(0, 2)) day
+                //birthYear.Text = Dr["mybirthdate"].ToString().Substring(6, 4);
                 if (Dr["mygender"].ToString() == "male")
                     RadioButton1.Checked = true;
                 else
                     RadioButton2.Checked = true;
-
                 Con1.Close();
 
 

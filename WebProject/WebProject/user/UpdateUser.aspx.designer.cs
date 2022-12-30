@@ -114,30 +114,30 @@ namespace WebProject
         protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
 
         /// <summary>
-        /// birthDay control.
+        /// days control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox birthDay;
+        protected global::System.Web.UI.WebControls.DropDownList days;
 
         /// <summary>
-        /// birthMonth control.
+        /// monthsDdl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox birthMonth;
+        protected global::System.Web.UI.WebControls.DropDownList monthsDdl;
 
         /// <summary>
-        /// birthYear control.
+        /// years control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox birthYear;
+        protected global::System.Web.UI.WebControls.DropDownList years;
     }
 }
