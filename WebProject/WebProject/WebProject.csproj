@@ -68,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="categories\AddCategory.aspx" />
+    <Content Include="ProductPage.aspx" />
+    <Content Include="products\InsertProduct.aspx" />
+    <Content Include="products\UpdateProduct.aspx" />
+    <Content Include="showProduct.aspx" />
     <Content Include="user\DeleteUser.aspx" />
     <Content Include="seller\UpdateDeleteSeller.aspx" />
     <Content Include="seller\InsertSeller2.aspx" />
@@ -84,6 +88,34 @@
     </Compile>
     <Compile Include="categories\AddCategory.aspx.designer.cs">
       <DependentUpon>AddCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductPage.aspx.cs">
+      <DependentUpon>ProductPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductPage.aspx.designer.cs">
+      <DependentUpon>ProductPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="products\InsertProduct.aspx.cs">
+      <DependentUpon>InsertProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products\InsertProduct.aspx.designer.cs">
+      <DependentUpon>InsertProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="products\UpdateProduct.aspx.cs">
+      <DependentUpon>UpdateProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products\UpdateProduct.aspx.designer.cs">
+      <DependentUpon>UpdateProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showProduct.aspx.cs">
+      <DependentUpon>showProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showProduct.aspx.designer.cs">
+      <DependentUpon>showProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\DeleteUser.aspx.cs">
       <DependentUpon>DeleteUser.aspx</DependentUpon>
@@ -137,6 +169,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
