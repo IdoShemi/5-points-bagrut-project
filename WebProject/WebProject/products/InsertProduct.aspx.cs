@@ -40,15 +40,17 @@ namespace WebProject.products
                     //  OleDbCommand cmd = null;
                     Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
 
-                    string filename = "0";
+
+                    string filename = "";
                     if (FileUpload1.HasFiles)
                     {
+                        string prefix = Server.MapPath("");
                         string path = "\\..\\images\\";
-                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(path);
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(prefix + path);
                         int count = dir.GetFiles().Length + 1;
                         string[] a = FileUpload1.FileName.ToString().Split('.');
                         filename = path + count.ToString() + '.' + a[a.Length - 1];
-                        FileUpload1.SaveAs(filename);
+                        FileUpload1.SaveAs(prefix+filename);
                     }
 
 

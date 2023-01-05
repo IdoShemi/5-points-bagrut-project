@@ -10,6 +10,8 @@ namespace WebProject.products
 {
     public partial class UpdateProduct : System.Web.UI.Page
     {
+        public static string productCode = "";
+        public static string filename = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -27,7 +29,7 @@ namespace WebProject.products
                 category.DataBind();
                 Con1.Close();
 
-                string productCode = Request.QueryString["pc"];
+                productCode = Request.QueryString["pc"];
                 Con1.Open();
                 sqlstring = $"SELECT * FROM products WHERE serialNumber = '{productCode}'";
                 cmd = new OleDbCommand(sqlstring, Con1);
@@ -39,8 +41,8 @@ namespace WebProject.products
                 InsertSerialNum.Text = Dr["serialNumber"].ToString();
                 InsertAmount.Text = Dr["availiableamount"].ToString();
 
-                string path = Dr["imageCode"].ToString();
-                Image1.ImageUrl = path;
+                filename = Dr["imageCode"].ToString();
+                Image1.ImageUrl = filename;
                 Con1.Close();
 
                 Con1.Open();
@@ -77,45 +79,42 @@ namespace WebProject.products
 
         protected void Updatebutton(object sender, EventArgs e)
         {
-            //    try
-            //    {
-            //        if (!(category.SelectedIndex == 0 || subcategory.SelectedIndex == 0))
-            //        {
-            //            OleDbConnection Con1 = new OleDbConnection();
-            //            //  OleDbCommand cmd = null;
-            //            Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
-
-            //            string filename = "0";
-            //            if (FileUpload1.HasFiles)
-            //            {
-            //                string path = Server.MapPath("") + "\\..\\images\\";
-            //                System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(path);
-            //                int count = dir.GetFiles().Length + 1;
-            //                string[] a = FileUpload1.FileName.ToString().Split('.');
-            //                filename = path + count.ToString() + '.' + a[a.Length - 1];
-            //                FileUpload1.SaveAs(filename);
-            //            }
+            try
+            {
+                OleDbConnection Con1 = new OleDbConnection();
+                //  OleDbCommand cmd = null;
+                Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
 
 
-            //            string sqlstring = " INSERT INTO products (productName,productSeller, category, subcategory, serialNumber, ImageCode, availiableamount) VALUES "
-            //                            + "('" + InsertProductName.Text + "','" + InsertSeller.Text + "','" + category.SelectedValue + "','" +
-            //                            subcategory.SelectedValue + "','" + InsertSerialNum.Text + "','" + filename + "','" + InsertAmount.Text + "');";
+                if (FileUpload1.HasFiles)
+                {
+                    string prefix = Server.MapPath("");
+                    string path = "\\..\\images\\";
+                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(prefix + path);
+                    int count = dir.GetFiles().Length + 1;
+                    string[] a = FileUpload1.FileName.ToString().Split('.');
+                    filename = path + count.ToString() + '.' + a[a.Length - 1];
+                    FileUpload1.SaveAs(prefix + filename);
+                }
 
-            //            Con1.Open();
-            //            OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);
-            //            int y = 0;
-            //            y = cmd.ExecuteNonQuery();
-            //            Response.Write(y);
-            //            Con1.Close();
-            //        }
-            //        else
-            //            Response.Write("you must select a category and a subcategory");
 
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Response.Write(ex.Message);
-            //    }
+                string sqlstring = $"UPDATE products SET productName = '{InsertProductName.Text}', category = '{category.SelectedValue}'," +
+                    $" subcategory = '{subcategory.SelectedValue}', serialNumber = '{InsertSerialNum.Text}', ImageCode ='{filename}', " +
+                    $"availiableamount='{InsertAmount.Text}' WHERE serialNumber ='{productCode}'";
+
+                Response.Write(sqlstring);
+                Con1.Open();
+                OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);
+                int y = 0;
+                y = cmd.ExecuteNonQuery();
+                Response.Write(y);
+                Con1.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
         }
     }
 }

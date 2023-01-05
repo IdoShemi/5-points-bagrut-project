@@ -70,6 +70,7 @@
     <Content Include="categories\AddCategory.aspx" />
     <Content Include="ProductPage.aspx" />
     <Content Include="products\InsertProduct.aspx" />
+    <Content Include="products\ManageProducts.aspx" />
     <Content Include="products\UpdateProduct.aspx" />
     <Content Include="showProduct.aspx" />
     <Content Include="user\DeleteUser.aspx" />
@@ -102,6 +103,13 @@
     </Compile>
     <Compile Include="products\InsertProduct.aspx.designer.cs">
       <DependentUpon>InsertProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="products\ManageProducts.aspx.cs">
+      <DependentUpon>ManageProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products\ManageProducts.aspx.designer.cs">
+      <DependentUpon>ManageProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="products\UpdateProduct.aspx.cs">
       <DependentUpon>UpdateProduct.aspx</DependentUpon>
