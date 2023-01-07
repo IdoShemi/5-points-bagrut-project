@@ -68,11 +68,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="categories\AddCategory.aspx" />
+    <Content Include="errorPage.aspx" />
     <Content Include="ProductPage.aspx" />
     <Content Include="products\InsertProduct.aspx" />
     <Content Include="products\ManageProducts.aspx" />
     <Content Include="products\UpdateProduct.aspx" />
     <Content Include="showProduct.aspx" />
+    <Content Include="SignInSeller.aspx" />
     <Content Include="user\DeleteUser.aspx" />
     <Content Include="seller\UpdateDeleteSeller.aspx" />
     <Content Include="seller\InsertSeller2.aspx" />
@@ -89,6 +91,13 @@
     </Compile>
     <Compile Include="categories\AddCategory.aspx.designer.cs">
       <DependentUpon>AddCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="errorPage.aspx.cs">
+      <DependentUpon>errorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="errorPage.aspx.designer.cs">
+      <DependentUpon>errorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductPage.aspx.cs">
       <DependentUpon>ProductPage.aspx</DependentUpon>
@@ -124,6 +133,13 @@
     </Compile>
     <Compile Include="showProduct.aspx.designer.cs">
       <DependentUpon>showProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignInSeller.aspx.cs">
+      <DependentUpon>SignInSeller.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignInSeller.aspx.designer.cs">
+      <DependentUpon>SignInSeller.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\DeleteUser.aspx.cs">
       <DependentUpon>DeleteUser.aspx</DependentUpon>

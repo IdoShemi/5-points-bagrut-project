@@ -31,14 +31,14 @@ namespace WebProject.products
 
                 productCode = Request.QueryString["pc"];
                 Con1.Open();
-                sqlstring = $"SELECT * FROM products WHERE serialNumber = '{productCode}'";
+                sqlstring = $"SELECT * FROM products WHERE productCode = '{productCode}'";
                 cmd = new OleDbCommand(sqlstring, Con1);
                 Dr = cmd.ExecuteReader();
                 Dr.Read();
                 InsertProductName.Text = Dr["productName"].ToString();
                 InsertSeller.Text = Dr["productSeller"].ToString();
                 category.SelectedValue = Dr["category"].ToString();
-                InsertSerialNum.Text = Dr["serialNumber"].ToString();
+                InsertSerialNum.Text = Dr["productCode"].ToString();
                 InsertAmount.Text = Dr["availiableamount"].ToString();
 
                 filename = Dr["imageCode"].ToString();
@@ -99,8 +99,8 @@ namespace WebProject.products
 
 
                 string sqlstring = $"UPDATE products SET productName = '{InsertProductName.Text}', category = '{category.SelectedValue}'," +
-                    $" subcategory = '{subcategory.SelectedValue}', serialNumber = '{InsertSerialNum.Text}', ImageCode ='{filename}', " +
-                    $"availiableamount='{InsertAmount.Text}' WHERE serialNumber ='{productCode}'";
+                    $" subcategory = '{subcategory.SelectedValue}', productCode = '{InsertSerialNum.Text}', ImageCode ='{filename}', " +
+                    $"availiableamount='{InsertAmount.Text}' WHERE productCode ='{productCode}'";
 
                 Response.Write(sqlstring);
                 Con1.Open();

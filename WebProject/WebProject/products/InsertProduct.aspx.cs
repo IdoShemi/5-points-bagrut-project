@@ -54,7 +54,7 @@ namespace WebProject.products
                     }
 
 
-                    string sqlstring = " INSERT INTO products (productName,productSeller, category, subcategory, serialNumber, ImageCode, availiableamount) VALUES "
+                    string sqlstring = " INSERT INTO products (productName,productSeller, category, subcategory, productCode, ImageCode, availiableamount) VALUES "
                                     + "('" + InsertProductName.Text + "','" + InsertSeller.Text + "','" + category.SelectedValue + "','" +
                                     subcategory.SelectedValue + "','" + InsertSerialNum.Text + "','" + filename + "','" + InsertAmount.Text + "');";
 

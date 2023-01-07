@@ -12,10 +12,14 @@ namespace WebProject.products
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["sellerName"] == null)
+                Response.Redirect("../errorPage.aspx?m=1");
+            
+
             OleDbConnection Con = new OleDbConnection();
             Con.ConnectionString = @"provider=microsoft.ACE.oledb.12.0;data source=" + Server.MapPath("") + "\\..\\database.accdb";
             Con.Open();
-            string sqlstring = "select * from products";
+            string sqlstring = $"select * from products WHERE productSeller = '{Session["sellerName"]}'";
 
             OleDbCommand Cmd = new OleDbCommand(sqlstring, Con);
             OleDbDataReader dr1 = Cmd.ExecuteReader();

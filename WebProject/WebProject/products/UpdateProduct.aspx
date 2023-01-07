@@ -28,7 +28,7 @@
             <br />
             <asp:Image ID="Image1" runat="server" Width="150" />
             <br />
-            <asp:Button runat="server" Text="לחץ להוספה" OnClick="Updatebutton" />
+            <asp:Button runat="server" Text="לחץ לעדכון" OnClick="Updatebutton" />
         </div>
     </form>
 </body>

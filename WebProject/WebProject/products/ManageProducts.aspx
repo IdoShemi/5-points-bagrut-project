@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <asp:DataList ID="DataList2" RepeatColumns="3" EnableViewState="false"
             runat="server" OnItemCommand="DataList2_ItemCommand"
-            DataKeyField="serialNumber">
+            DataKeyField="productCode">
             <ItemTemplate>
 
                 <div style="border:2px dashed black;height: 160px; width:200px; margin: 5px; padding: 5px;">
@@ -21,7 +21,7 @@
                     <div style="width:200px;"><asp:Image ImageAlign="Middle" ID="Image1" runat="server" Width="150" Height="120"
                         ImageUrl='<%# Eval("ImageCode") %>' /></div>
 
-                    <asp:Button ID="Button2" runat="server" CommandArgument='<%# Eval("serialNumber") + "," +
+                    <asp:Button ID="Button2" runat="server" CommandArgument='<%# Eval("productCode") + "," +
                             Eval("productName") %>' CommandName="EditProduct" Text="Edit Product" />
 
                     <asp:Button ID="Button3" runat="server"
