@@ -13,20 +13,27 @@
             DataKeyField="productCode">
             <ItemTemplate>
 
-                <div style="border:2px dashed black;height: 160px; width:200px; margin: 5px; padding: 5px;">
-                    <div style="text-align:center; padding-bottom: 5px;"><asp:Label ID="Label2" runat="server"
-                        Text='<%# DataBinder.Eval(Container.DataItem,"productName")%>' ForeColor="Blue"></asp:Label></div>
+                <div style="border: 2px dashed black; height: 240px; width: 250px; margin: 5px; padding: 5px;">
+                    <div style="text-align: center; padding-bottom: 5px; font-size: 1.5rem;">
+                        <asp:Label ID="Label2" runat="server"
+                            Text='<%# DataBinder.Eval(Container.DataItem,"productName")%>' ForeColor="Blue"></asp:Label>
+                    </div>
 
 
-                    <div style="width:200px;"><asp:Image ImageAlign="Middle" ID="Image1" runat="server" Width="150" Height="120"
-                        ImageUrl='<%# Eval("ImageCode") %>' /></div>
+                    <div style="width:fit-content; margin: 0 auto;  display:block;">
+                        <asp:Image ImageAlign="Middle" ID="Image1" runat="server" Width="180" Height="180"
+                            ImageUrl='<%# Eval("ImageCode") %>' />
+                    </div>
+                    <div style="font-size: 3rem; display:block; height:100px; justify-content: center; align-items: center; width:fit-content; margin: 0 auto;">
+                        <asp:Button ID="Button2" runat="server" CommandArgument='<%# Eval("productCode") + "," +
+                            Eval("productName") %>'
+                            CommandName="EditProduct" Text="Edit Product" />
 
-                    <asp:Button ID="Button2" runat="server" CommandArgument='<%# Eval("productCode") + "," +
-                            Eval("productName") %>' CommandName="EditProduct" Text="Edit Product" />
-
-                    <asp:Button ID="Button3" runat="server"
-                        Text="Show Product" CommandName="ShowProduct" />
-                    <br />
+                        <asp:Button ID="Button3" runat="server" CommandArgument='<%# Eval("productCode") + "," +
+                            Eval("productName") %>'
+                            Text="Show Product" CommandName="ShowProduct" />
+                        
+                    </div>
                 </div>
             </ItemTemplate>
             <%--<AlternatingItemTemplate>

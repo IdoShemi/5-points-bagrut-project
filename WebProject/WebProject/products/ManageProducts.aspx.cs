@@ -40,8 +40,7 @@ namespace WebProject.products
             {
                 Response.Redirect("showProduct.aspx?pc=" + code);
             }
-            else
-                 if (e.CommandName == "EditProduct") Response.Redirect("UpdateProduct.aspx?pc="+code);
+            else if (e.CommandName == "EditProduct") Response.Redirect("UpdateProduct.aspx?pc="+code);
 
         }
     }

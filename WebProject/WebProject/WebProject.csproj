@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebProject</RootNamespace>
     <AssemblyName>WebProject</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -73,7 +73,7 @@
     <Content Include="products\InsertProduct.aspx" />
     <Content Include="products\ManageProducts.aspx" />
     <Content Include="products\UpdateProduct.aspx" />
-    <Content Include="showProduct.aspx" />
+    <Content Include="products\showProduct.aspx" />
     <Content Include="SignInSeller.aspx" />
     <Content Include="user\DeleteUser.aspx" />
     <Content Include="seller\UpdateDeleteSeller.aspx" />
@@ -127,11 +127,11 @@
     <Compile Include="products\UpdateProduct.aspx.designer.cs">
       <DependentUpon>UpdateProduct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="showProduct.aspx.cs">
+    <Compile Include="products\showProduct.aspx.cs">
       <DependentUpon>showProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="showProduct.aspx.designer.cs">
+    <Compile Include="products\showProduct.aspx.designer.cs">
       <DependentUpon>showProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="SignInSeller.aspx.cs">
