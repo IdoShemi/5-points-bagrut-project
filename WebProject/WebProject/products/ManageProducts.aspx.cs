@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Threading;
 
 namespace WebProject.products
 {
@@ -12,6 +13,7 @@ namespace WebProject.products
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["sellerName"] = "Fox Home";
             if (Session["sellerName"] == null)
                 Response.Redirect("../errorPage.aspx?m=1");
             
@@ -41,7 +43,22 @@ namespace WebProject.products
                 Response.Redirect("showProduct.aspx?pc=" + code);
             }
             else if (e.CommandName == "EditProduct") Response.Redirect("UpdateProduct.aspx?pc="+code);
-
+            else
+            {
+                OleDbConnection Con1 = new OleDbConnection();
+                Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
+                Con1.Open();
+                string sqlstring = "DELETE * FROM products WHERE productCode ='" + code + "';";
+                OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);
+                int y = 0;
+                y = cmd.ExecuteNonQuery();
+                if (y > 0)
+                {
+                    Thread.Sleep(500);
+                    Response.Redirect("ManageProducts.aspx");
+                }
+                    
+            }
         }
     }
 }

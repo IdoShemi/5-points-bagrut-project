@@ -51,6 +51,15 @@ namespace WebProject.products
         protected global::System.Web.UI.WebControls.TextBox InsertAmount;
 
         /// <summary>
+        /// InsertPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox InsertPrice;
+
+        /// <summary>
         /// category control.
         /// </summary>
         /// <remarks>

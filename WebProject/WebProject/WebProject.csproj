@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebProject</RootNamespace>
     <AssemblyName>WebProject</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="categories\AddCategory.aspx" />
     <Content Include="errorPage.aspx" />
-    <Content Include="ProductPage.aspx" />
     <Content Include="products\InsertProduct.aspx" />
     <Content Include="products\ManageProducts.aspx" />
     <Content Include="products\UpdateProduct.aspx" />
@@ -79,6 +78,7 @@
     <Content Include="seller\UpdateDeleteSeller.aspx" />
     <Content Include="seller\InsertSeller2.aspx" />
     <Content Include="user\InsertUser.aspx" />
+    <Content Include="user\ProductsCatalog.aspx" />
     <Content Include="user\ShowUsers.aspx" />
     <Content Include="style.css" />
     <Content Include="user\UpdateUser.aspx" />
@@ -98,13 +98,6 @@
     </Compile>
     <Compile Include="errorPage.aspx.designer.cs">
       <DependentUpon>errorPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProductPage.aspx.cs">
-      <DependentUpon>ProductPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductPage.aspx.designer.cs">
-      <DependentUpon>ProductPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="products\InsertProduct.aspx.cs">
       <DependentUpon>InsertProduct.aspx</DependentUpon>
@@ -170,6 +163,13 @@
       <DependentUpon>InsertUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user\ProductsCatalog.aspx.cs">
+      <DependentUpon>ProductsCatalog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\ProductsCatalog.aspx.designer.cs">
+      <DependentUpon>ProductsCatalog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\ShowUsers.aspx.cs">
       <DependentUpon>ShowUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

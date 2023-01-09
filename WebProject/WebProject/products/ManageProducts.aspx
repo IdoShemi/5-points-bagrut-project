@@ -8,32 +8,35 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:DataList ID="DataList2" RepeatColumns="3" EnableViewState="false"
+        <center>
+        <asp:DataList ID="DataList2" RepeatColumns="5" EnableViewState="false"
             runat="server" OnItemCommand="DataList2_ItemCommand"
             DataKeyField="productCode">
             <ItemTemplate>
 
-                <div style="border: 2px dashed black; height: 240px; width: 250px; margin: 5px; padding: 5px;">
-                    <div style="text-align: center; padding-bottom: 5px; font-size: 1.5rem;">
+                <div style="border: 2px dashed black; height: 290px; width: 250px; margin: 5px; padding: 5px;">
+                    <div style="text-align: center; padding-bottom: 5px; font-size: 1.5rem; direction:rtl;">
                         <asp:Label ID="Label2" runat="server"
-                            Text='<%# DataBinder.Eval(Container.DataItem,"productName")%>' ForeColor="Blue"></asp:Label>
+                            Text='<%# DataBinder.Eval(Container.DataItem,"productName")%>' ForeColor="Blue"></asp:Label><br />
+                        <div style="font-size:1.3rem;">
+                        מחיר: <asp:Label ID="Label1" runat="server"
+                            Text='<%# DataBinder.Eval(Container.DataItem,"Price")%>' ForeColor="black"></asp:Label>₪</div>
                     </div>
 
 
-                    <div style="width:fit-content; margin: 0 auto;  display:block;">
+                    <div style="width: fit-content; margin: 0 auto; margin-bottom: 5px; display: block;">
                         <asp:Image ImageAlign="Middle" ID="Image1" runat="server" Width="180" Height="180"
                             ImageUrl='<%# Eval("ImageCode") %>' />
                     </div>
-                    <div style="font-size: 3rem; display:block; height:100px; justify-content: center; align-items: center; width:fit-content; margin: 0 auto;">
-                        <asp:Button ID="Button2" runat="server" CommandArgument='<%# Eval("productCode") + "," +
-                            Eval("productName") %>'
-                            CommandName="EditProduct" Text="Edit Product" />
-
-                        <asp:Button ID="Button3" runat="server" CommandArgument='<%# Eval("productCode") + "," +
-                            Eval("productName") %>'
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; height: fit-content; align-items: center; width: fit-content; margin: 0 auto;">
+                        <asp:Button ID="Button2" runat="server" CommandArgument='<%# Eval("productCode") + "," + Eval("productName") %>'
+                            CommandName="EditProduct" Text="Edit Product" style="margin-right:5px;" />
+                        <asp:Button ID="Button3" runat="server" CommandArgument='<%# Eval("productCode") + "," + Eval("productName") %>'
                             Text="Show Product" CommandName="ShowProduct" />
-                        
+                        <asp:Button ID="Button1" OnClientClick="return confirm('are you sure?')" runat="server" CommandArgument='<%# Eval("productCode") + "," + Eval("productName") %>' 
+                            Text="Delete Product" CommandName="DeleteProduct" Style="margin-top: 5px; justify-self: center;" />
                     </div>
+
                 </div>
             </ItemTemplate>
             <%--<AlternatingItemTemplate>
@@ -59,6 +62,7 @@
         
         </AlternatingItemTemplate>--%>
         </asp:DataList>
+            </center>
     </form>
 </body>
 </html>

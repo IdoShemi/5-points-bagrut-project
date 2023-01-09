@@ -33,6 +33,7 @@ namespace WebProject
             Category.Text = Dr["category"].ToString();
             subcategory.Text = Dr["subcategory"].ToString();
             InsertAmount.Text = Dr["availiableamount"].ToString();
+            InsertPrice.Text = Dr["Price"].ToString();
 
             string filename = Dr["imageCode"].ToString();
             Image1.ImageUrl = filename;

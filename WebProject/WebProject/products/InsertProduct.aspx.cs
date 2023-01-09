@@ -54,9 +54,9 @@ namespace WebProject.products
                     }
 
 
-                    string sqlstring = " INSERT INTO products (productName,productSeller, category, subcategory, productCode, ImageCode, availiableamount) VALUES "
+                    string sqlstring = " INSERT INTO products (productName,productSeller, category, subcategory, productCode, ImageCode, availiableamount, Price) VALUES "
                                     + "('" + InsertProductName.Text + "','" + InsertSeller.Text + "','" + category.SelectedValue + "','" +
-                                    subcategory.SelectedValue + "','" + InsertSerialNum.Text + "','" + filename + "','" + InsertAmount.Text + "');";
+                                    subcategory.SelectedValue + "','" + InsertSerialNum.Text + "','" + filename + "','" + InsertAmount.Text + "','"+ InsertPrice.Text.ToString() + "');";
 
                     Con1.Open();
                     OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);

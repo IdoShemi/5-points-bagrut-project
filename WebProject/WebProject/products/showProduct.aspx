@@ -25,7 +25,7 @@
                 <asp:Label ID="InsertAmount" runat="server" Text=""></asp:Label>
                 <br />
                 מחיר:
-                <asp:Label ID="InsertPrice" runat="server" Text="להוסיף לדאטאבייס בבית"></asp:Label>
+                <asp:Label ID="InsertPrice" runat="server" Text=""></asp:Label>₪
             </div>
             <asp:Image ID="Image1" runat="server" Style="width: 25%; height: auto; margin-right: 5px;" />
         </div>

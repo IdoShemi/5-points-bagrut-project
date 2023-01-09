@@ -13,6 +13,7 @@
             <span class="inputText">הכנס שם מוצר:</span><asp:TextBox ID="InsertProductName" runat="server" Text=""></asp:TextBox><br />
             <span class="inputText">הכנס שם מוכר:</span><asp:TextBox ID="InsertSeller" runat="server" Text=""></asp:TextBox><br />
             <span class="inputText">הכנס כמות במלאי:</span><asp:TextBox ID="InsertAmount" runat="server" Text=""></asp:TextBox><br />
+            <span class="inputText">הכנס מחיר מוצר:</span><asp:TextBox ID="InsertPrice" runat="server" Text=""></asp:TextBox><br />
             <span class="inputText">קטגוריה</span>
             <asp:DropDownList ID="category" runat="server" OnSelectedIndexChanged="dataChanged" AutoPostBack="True"></asp:DropDownList>
             <br />
