@@ -13,7 +13,6 @@ namespace WebProject.products
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["sellerName"] = "Fox Home";
             if (Session["sellerName"] == null)
                 Response.Redirect("../errorPage.aspx?m=1");
             
