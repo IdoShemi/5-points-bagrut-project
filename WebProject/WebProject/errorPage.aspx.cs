@@ -18,7 +18,7 @@ namespace WebProject
 
         protected void moveToSignIn(object sender, EventArgs e)
         {
-            Response.Redirect("SignInSeller.aspx");
+            Response.Redirect("SignInSellerPage.aspx");
         }
     }
 }
