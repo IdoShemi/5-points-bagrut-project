@@ -68,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="categories\AddCategoryPage.aspx" />
+    <Content Include="categories\AskCategory.aspx" />
+    <Content Include="categories\ManageCategoryRequests.aspx" />
+    <Content Include="categories\Notifications.aspx" />
     <Content Include="css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-grid.min.css" />
     <Content Include="css\bootstrap-reboot.css" />
@@ -117,6 +120,27 @@
     </Compile>
     <Compile Include="categories\AddCategoryPage.aspx.designer.cs">
       <DependentUpon>AddCategoryPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="categories\AskCategory.aspx.cs">
+      <DependentUpon>AskCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="categories\AskCategory.aspx.designer.cs">
+      <DependentUpon>AskCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="categories\ManageCategoryRequests.aspx.cs">
+      <DependentUpon>ManageCategoryRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="categories\ManageCategoryRequests.aspx.designer.cs">
+      <DependentUpon>ManageCategoryRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="categories\Notifications.aspx.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="categories\Notifications.aspx.designer.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
     </Compile>
     <Compile Include="errorPage.aspx.cs">
       <DependentUpon>errorPage.aspx</DependentUpon>
