@@ -5,12 +5,11 @@
     <h1 align="center">עדכון משתמש לאדמין</h1>
     <form id="form1" runat="server">
         <div>
-            <span class="inputText">הכנס שם משתמש לעדכון:</span><asp:TextBox ID="InsertName" runat="server" Text=""></asp:TextBox>
-            <asp:Button runat="server" Text="לחץ לטעינת משתמש" OnClick="UpdateValuesbutton" />
+            <span class="inputText">שם משתמש לעדכון:</span><asp:TextBox ID="InsertName" runat="server" Text=""></asp:TextBox>
+
 
 
             <br /><br />
-
 
             <span class="inputText">הכנס שם פרטי:</span><asp:TextBox ID="InsertFirstName" runat="server" Text=""></asp:TextBox><br />
             <span class="inputText">הכנס שם משפחה:</span><asp:TextBox ID="InsertLastName" runat="server" Text=""></asp:TextBox><br />

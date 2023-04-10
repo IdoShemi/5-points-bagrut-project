@@ -26,11 +26,12 @@ namespace WebProject.user
             December       // 11
 
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            Application["userToUpdate"] = Request.QueryString["un"];
             if (!IsPostBack)
             {
+                UpdateData(Application["userToUpdate"].ToString());
                 OleDbConnection Con1 = new OleDbConnection();
                 Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
 
@@ -67,6 +68,7 @@ namespace WebProject.user
 
         protected void Updatebutton(object sender, EventArgs e)
         {
+            string newUserName = InsertName.Text;
             try
             {
                 OleDbConnection Con1 = new OleDbConnection();
@@ -79,39 +81,41 @@ namespace WebProject.user
 
                 string sqlstring = $"UPDATE users SET mypassword = '{InsertPass.Text}', mybirthdate = '{days.SelectedValue + '/' + monthsDdl.SelectedValue + '/' + years.SelectedValue}" +
                     $"', myemail = '{InsertMail.Text}', mygender = '{gender}', myphonenumber = '{InsertPhone.Text}', myaddress ='{InsertAddress.Text}', " +
-                    $"mycity='{InsertCity.Text}', myname='{InsertFirstName.Text}', mylastname='{InsertLastName.Text}' WHERE myusername ='{InsertName.Text}'";
-
+                    $"mycity='{InsertCity.Text}', myname='{InsertFirstName.Text}', mylastname='{InsertLastName.Text}',myusername ='{newUserName}' WHERE myusername ='{Application["userToUpdate"].ToString()}'";
+                Application["userToUpdate"] = newUserName;
                 Response.Write(sqlstring);
                 Con1.Open();
                 OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);
                 int y = 0;
                 y = cmd.ExecuteNonQuery();
-                Response.Write(y);
                 Con1.Close();
+
+
+                
 
             }
             catch (Exception ex)
             {
                 Response.Write(ex.Message);
             }
+            Response.Redirect("/admin/ShowUsersPage.aspx");
         }
 
-        protected void UpdateValuesbutton(object sender, EventArgs e)
+        protected void UpdateData(string user)
         {
             OleDbConnection Con1 = new OleDbConnection();
             Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
             Con1.Open();
-            string sqlstring = "SELECT * FROM users WHERE myusername = '" + InsertName.Text + "';";
+            string sqlstring = "SELECT * FROM users WHERE myusername = '" + Application["userToUpdate"].ToString() + "';";
 
             OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);
             OleDbDataReader Dr = cmd.ExecuteReader();
             Dr.Read();
 
-            InsertName.Enabled = false;
 
             if (Dr.HasRows)
             {
-                InsertName.Text = Dr["myusername"].ToString();
+                InsertName.Text = Application["userToUpdate"].ToString();
                 InsertFirstName.Text = Dr["myname"].ToString();
                 InsertLastName.Text = Dr["mylastname"].ToString();
                 InsertPass.Text = Dr["mypassword"].ToString();

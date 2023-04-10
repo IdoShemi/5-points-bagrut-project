@@ -32,10 +32,17 @@ namespace WebProject
                 Literal3.Text = "<a href='/categories/Notifications.aspx' class='btn px-0 ml-3'>" +
                     "<i class='fas fa-bell text-primary'></i>" +
                     "<span class='badge text-secondary border border-secondary rounded-circle' style='padding-bottom: 2px;'>"+ CountNotifications().ToString() +"</span></a>";
+                Literal2.Text = "<a href='/LogOutPage.aspx' class='btn px-0 ml-3' style='color:white'>Log Out</a>";
             }
             else if (Session["adminName"] != null)
             {
+                linksites = "<a href='/index.html' class='nav-item nav-link'>Home</a>"+
+                    "<a href='/admin/adminHub.aspx' class='nav-item nav-link'>admin hub</a>"; // add admin pages for now
+
+
+
                 // admin pages - add menu and add all the pages 
+                Literal2.Text = "<a href='/LogOutPage.aspx' class='btn px-0 ml-3' style='color:white'>Log Out</a>";
             }
             else
             {// unregistered user

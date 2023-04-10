@@ -41,7 +41,13 @@ namespace WebProject.products
             {
                 Response.Redirect("showProductPage.aspx?pc=" + code);
             }
-            else if (e.CommandName == "EditProduct") Response.Redirect("UpdateProductPage.aspx?pc=" + code);
+            else if (e.CommandName == "EditProduct")
+            {
+                if(Session["sellerName"]  != null)
+                    Response.Redirect("/seller/UpdateProductSeller.aspx?pc=" + code);
+                else
+                    Response.Redirect("UpdateProductPage.aspx?pc=" + code);
+            }
             else
             {
                 OleDbConnection Con1 = new OleDbConnection();

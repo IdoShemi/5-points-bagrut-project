@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admins.xml" />
+    <Content Include="admin\adminHub.aspx" />
     <Content Include="categories\AddCategoryPage.aspx" />
     <Content Include="categories\AskCategory.aspx" />
     <Content Include="categories\ManageCategoryRequests.aspx" />
@@ -101,6 +103,7 @@
     <Content Include="products\UpdateProductPage.aspx" />
     <Content Include="seller\InsertSeller.aspx" />
     <Content Include="seller\UpdateDeleteSeller2.aspx" />
+    <Content Include="seller\UpdateProductSeller.aspx" />
     <Content Include="SignIn.aspx" />
     <Content Include="SignInSellerPage.aspx" />
     <Content Include="SignInUserPage.aspx" />
@@ -109,11 +112,18 @@
     <Content Include="user\InsertUserPage.aspx" />
     <Content Include="user\ProductsCatalogPage.aspx" />
     <Content Include="style.css" />
-    <Content Include="user\ShowUsersPage.aspx" />
-    <Content Include="user\UpdateUserPage.aspx" />
+    <Content Include="admin\ShowUsersPage.aspx" />
+    <Content Include="admin\UpdateUserPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\adminHub.aspx.cs">
+      <DependentUpon>adminHub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\adminHub.aspx.designer.cs">
+      <DependentUpon>adminHub.aspx</DependentUpon>
+    </Compile>
     <Compile Include="categories\AddCategoryPage.aspx.cs">
       <DependentUpon>AddCategoryPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -198,6 +208,13 @@
     <Compile Include="seller\UpdateDeleteSeller2.aspx.designer.cs">
       <DependentUpon>UpdateDeleteSeller2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="seller\UpdateProductSeller.aspx.cs">
+      <DependentUpon>UpdateProductSeller.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seller\UpdateProductSeller.aspx.designer.cs">
+      <DependentUpon>UpdateProductSeller.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SignIn.aspx.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -255,18 +272,18 @@
     <Compile Include="user\ProductsCatalogPage.aspx.designer.cs">
       <DependentUpon>ProductsCatalogPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="user\ShowUsersPage.aspx.cs">
+    <Compile Include="admin\ShowUsersPage.aspx.cs">
       <DependentUpon>ShowUsersPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="user\ShowUsersPage.aspx.designer.cs">
+    <Compile Include="admin\ShowUsersPage.aspx.designer.cs">
       <DependentUpon>ShowUsersPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="user\UpdateUserPage.aspx.cs">
+    <Compile Include="admin\UpdateUserPage.aspx.cs">
       <DependentUpon>UpdateUserPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="user\UpdateUserPage.aspx.designer.cs">
+    <Compile Include="admin\UpdateUserPage.aspx.designer.cs">
       <DependentUpon>UpdateUserPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
