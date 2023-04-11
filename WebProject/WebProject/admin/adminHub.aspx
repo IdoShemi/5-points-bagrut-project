@@ -62,7 +62,7 @@
             </div>
 
 			<div class="col-lg-2">
-                <a href="SignInSellerPage.aspx">
+                <a href="/categories/ManageCategoryRequests.aspx">
                     <button class="btn2 btn-block btn-primary font-weight-bold py-3">Control <br />Requests</button>
                 </a>
             </div>

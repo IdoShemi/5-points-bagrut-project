@@ -27,8 +27,7 @@ namespace WebProject.categories
             DataList2.DataSource = dr1;
             DataList2.DataBind();
 
-            //basket b = new basket();
-            //Session["basket"] = b;
+            
         }
 
         protected void DataList2_ItemCommand(object source, DataListCommandEventArgs e)

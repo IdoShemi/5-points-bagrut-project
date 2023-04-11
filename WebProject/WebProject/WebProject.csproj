@@ -108,12 +108,15 @@
     <Content Include="SignInSellerPage.aspx" />
     <Content Include="SignInUserPage.aspx" />
     <Content Include="SignUp.aspx" />
+    <Content Include="user\delete.png" />
     <Content Include="user\DeleteUserPage.aspx" />
     <Content Include="user\InsertUserPage.aspx" />
+    <Content Include="user\orderSent.aspx" />
     <Content Include="user\ProductsCatalogPage.aspx" />
     <Content Include="style.css" />
     <Content Include="admin\ShowUsersPage.aspx" />
     <Content Include="admin\UpdateUserPage.aspx" />
+    <Content Include="user\ShoppingCart.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +127,7 @@
     <Compile Include="admin\adminHub.aspx.designer.cs">
       <DependentUpon>adminHub.aspx</DependentUpon>
     </Compile>
+    <Compile Include="basket.cs" />
     <Compile Include="categories\AddCategoryPage.aspx.cs">
       <DependentUpon>AddCategoryPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -265,6 +269,13 @@
     <Compile Include="user\InsertUserPage.aspx.designer.cs">
       <DependentUpon>InsertUserPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user\orderSent.aspx.cs">
+      <DependentUpon>orderSent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\orderSent.aspx.designer.cs">
+      <DependentUpon>orderSent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\ProductsCatalogPage.aspx.cs">
       <DependentUpon>ProductsCatalogPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -285,6 +296,13 @@
     </Compile>
     <Compile Include="admin\UpdateUserPage.aspx.designer.cs">
       <DependentUpon>UpdateUserPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

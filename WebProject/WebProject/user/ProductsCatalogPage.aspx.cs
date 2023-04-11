@@ -15,8 +15,12 @@ namespace WebProject.user
             string sqlstring;
             if (!IsPostBack)
             {
-                //basket b = new basket();
-                //Session["basket"] = b;
+                if(Session["basket"] == null)
+                {
+                    basket b = new basket();
+                    Session["basket"] = b;
+                }
+                
 
                 OleDbConnection Con1 = new OleDbConnection();
                 Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
@@ -60,7 +64,7 @@ namespace WebProject.user
         }
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
+        { 
 
             // Handle the item command event here
         }

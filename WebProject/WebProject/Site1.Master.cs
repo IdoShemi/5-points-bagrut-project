@@ -16,10 +16,10 @@ namespace WebProject
             if (Session["userName"] != null)
             { // user pages
                 linksites = "<a href='/index.html' class='nav-item nav-link'>Home</a>" +
-                    "<a href='/user/ShowUsersPage.aspx' class='nav-item nav-link'>Catalog</a>" +
+                    "<a href='/user/ProductsCatalogPage.aspx' class='nav-item nav-link'>Catalog</a>" +
                             "<a href='/user/UpdateUserCredintialsPage.aspx' class='nav-item nav-link'>Update Credintials</a>";
 
-
+                UpdateBasketText();
                 Literal2.Text = "<a href='/LogOutPage.aspx' class='btn px-0 ml-3' style='color:white'>Log Out</a>";
             }
             else if (Session["sellerName"] != null)
@@ -54,6 +54,19 @@ namespace WebProject
             literl1.Text = linksites;
         }
 
+        public void UpdateBasketText()
+        {
+            Literal4.Text = "<a href='/user/ShoppingCart.aspx' class='btn px-0 ml-3'>" +
+                    "<i class='fas fa-shopping-cart text-primary'></i>" +
+                    "<span class='badge text-secondary border border-secondary rounded-circle'" +
+                    " style='padding-bottom: 2px;'>" + CountBasket().ToString() + "</span></a>";
+        }
+        protected int CountBasket()
+        {
+            basket b = new basket();
+            b= (basket)Session["basket"];
+            return b.len();
+        }
         protected int CountNotifications()
         {
             OleDbConnection Con1 = new OleDbConnection();

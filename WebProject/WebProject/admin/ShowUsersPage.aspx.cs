@@ -22,23 +22,52 @@ namespace WebProject.user
         {
             usersRepeater.Visible = true;
 
-            OleDbConnection Con1 = new OleDbConnection();
-            Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
-            Con1.Open();
-            string sqlstring = "SELECT * FROM users";
-            OleDbCommand Cmd = new OleDbCommand(sqlstring, Con1);
-            OleDbDataReader dr = Cmd.ExecuteReader();
-            if (dr.HasRows)
+            if (InsertMail.Text.ToString() != "")
             {
-                usersRepeater.DataSource = dr;
-                usersRepeater.DataBind();
-                Con1.Close();
+                OleDbConnection Con1 = new OleDbConnection();
+                Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
+                Con1.Open();
+                string sqlstring = $"SELECT * FROM users WHERE myemail='{InsertMail.Text.ToString()}'";
+                OleDbCommand Cmd = new OleDbCommand(sqlstring, Con1);
+                OleDbDataReader dr = Cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    l1.Text = "";
+                    usersRepeater.DataSource = dr;
+                    usersRepeater.DataBind();
+                    Con1.Close();
+                }
+                else
+                {
+                    l1.Text = ("NOT found");
+                    usersRepeater.Visible = false;
+                    Con1.Close();
+                }
             }
             else
             {
-                l1.Text = ("NOT found");
-                Con1.Close();
+                OleDbConnection Con1 = new OleDbConnection();
+                Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
+                Con1.Open();
+                string sqlstring = "SELECT * FROM users";
+                OleDbCommand Cmd = new OleDbCommand(sqlstring, Con1);
+                OleDbDataReader dr = Cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    l1.Text = "";
+                    usersRepeater.DataSource = dr;
+                    usersRepeater.DataBind();
+                    Con1.Close();
+                }
+                else
+                {
+                    usersRepeater.Visible = false;
+                    l1.Text = ("NOT found");
+                    Con1.Close();
+                }
+
             }
+
         }
 
 

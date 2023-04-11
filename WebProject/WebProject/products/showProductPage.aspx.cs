@@ -41,5 +41,44 @@ namespace WebProject.products
 
         }
 
+
+
+        protected void UpdateBasket(object sender, EventArgs e)
+        {
+            productCode = Request.QueryString["pc"];
+            OleDbConnection Con1 = new OleDbConnection();
+            Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
+
+
+            Con1.Open();
+
+            string sqlstring = $"SELECT * FROM products WHERE productCode = '{productCode}'";
+            OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);
+            OleDbDataReader Dr = cmd.ExecuteReader();
+            Dr.Read();
+            string seller = Dr["productSeller"].ToString();
+            string prodName = Dr["productName"].ToString();
+            double price = Convert.ToDouble(Dr["Price"].ToString());
+
+            item i = new item(seller, prodName ,price);
+            basket b = new basket();
+            b = (basket)Session["basket"];
+            b.ADDitem(i);
+            Session["basket"] = b;
+
+            // Get a reference to the master page
+            var master = Master as Site1;
+            master?.UpdateBasketText();
+
+            Con1.Close();
+
+            ShowPopup();
+        }
+
+        private void ShowPopup()
+        {
+            popup.Style.Add("display", "block");
+            ScriptManager.RegisterStartupScript(this, GetType(), "HidePopup", "setTimeout(function() { document.getElementById('" + popup.ClientID + "').style.display = 'none'; }, 3000);", true);
+        }
     }
 }
