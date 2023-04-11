@@ -102,6 +102,7 @@
     <Content Include="products\showProductPage.aspx" />
     <Content Include="products\UpdateProductPage.aspx" />
     <Content Include="seller\InsertSeller.aspx" />
+    <Content Include="seller\orders.aspx" />
     <Content Include="seller\UpdateDeleteSeller2.aspx" />
     <Content Include="seller\UpdateProductSeller.aspx" />
     <Content Include="SignIn.aspx" />
@@ -117,6 +118,7 @@
     <Content Include="admin\ShowUsersPage.aspx" />
     <Content Include="admin\UpdateUserPage.aspx" />
     <Content Include="user\ShoppingCart.aspx" />
+    <Content Include="user\TrackOrders.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +206,13 @@
     </Compile>
     <Compile Include="seller\InsertSeller.aspx.designer.cs">
       <DependentUpon>InsertSeller.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="seller\orders.aspx.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seller\orders.aspx.designer.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
     </Compile>
     <Compile Include="seller\UpdateDeleteSeller2.aspx.cs">
       <DependentUpon>UpdateDeleteSeller2.aspx</DependentUpon>
@@ -303,6 +312,13 @@
     </Compile>
     <Compile Include="user\ShoppingCart.aspx.designer.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\TrackOrders.aspx.cs">
+      <DependentUpon>TrackOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\TrackOrders.aspx.designer.cs">
+      <DependentUpon>TrackOrders.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

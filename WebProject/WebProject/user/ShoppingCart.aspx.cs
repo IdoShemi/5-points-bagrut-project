@@ -170,8 +170,8 @@ namespace WebProject.user
                 (bool inStock, int amount_in_stock) = CheckStock(values[0], values[1], amount);
                 LowerStock(values[0], values[1], amount, amount_in_stock);
                 SendOrder(values[0], values[1], amount, newcodenumber);
-                Response.Redirect("/user/orderSent.aspx?id="+newcodenumber);
             }
+            Response.Redirect("/user/orderSent.aspx?id=" + newcodenumber);
         }
 
 

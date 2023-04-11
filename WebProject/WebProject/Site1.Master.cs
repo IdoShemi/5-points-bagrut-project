@@ -17,7 +17,8 @@ namespace WebProject
             { // user pages
                 linksites = "<a href='/index.html' class='nav-item nav-link'>Home</a>" +
                     "<a href='/user/ProductsCatalogPage.aspx' class='nav-item nav-link'>Catalog</a>" +
-                            "<a href='/user/UpdateUserCredintialsPage.aspx' class='nav-item nav-link'>Update Credintials</a>";
+                            "<a href='/user/UpdateUserCredintialsPage.aspx' class='nav-item nav-link'>Update Credintials</a>" +
+                            "<a href='/user/TrackOrders.aspx' class='nav-item nav-link'>Track Orders</a>";
 
                 UpdateBasketText();
                 Literal2.Text = "<a href='/LogOutPage.aspx' class='btn px-0 ml-3' style='color:white'>Log Out</a>";
@@ -28,7 +29,8 @@ namespace WebProject
                     "<a href='/products/InsertProductPage.aspx' class='nav-item nav-link'>Insert Product</a>" +
                             "<a href='/products/MangeProductsPage.aspx' class='nav-item nav-link'>Manage Products</a>" +
                             "<a href='/seller/UpdateDeleteSeller.aspx' class='nav-item nav-link'>Update Seller credentials</a>" +
-                            "<a href='/categories/AskCategory.aspx' class='nav-item nav-link'>Ask Category</a>";
+                            "<a href='/categories/AskCategory.aspx' class='nav-item nav-link'>Ask Category</a>"+
+                            "<a href='/seller/orders.aspx' class='nav-item nav-link'>Manage Orders</a>";
                 Literal3.Text = "<a href='/categories/Notifications.aspx' class='btn px-0 ml-3'>" +
                     "<i class='fas fa-bell text-primary'></i>" +
                     "<span class='badge text-secondary border border-secondary rounded-circle' style='padding-bottom: 2px;'>"+ CountNotifications().ToString() +"</span></a>";

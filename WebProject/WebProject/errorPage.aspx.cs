@@ -14,11 +14,13 @@ namespace WebProject
             string errcode = Request.QueryString["m"];
             if (errcode == "1")
                 Label1.Text = "You are not logged as a seller";
+            else if(errcode == "2")
+                Label1.Text = "You are not logged as a user";
         }
 
         protected void moveToSignIn(object sender, EventArgs e)
         {
-            Response.Redirect("SignInSellerPage.aspx");
+            Response.Redirect("SignIn.aspx");
         }
     }
 }
