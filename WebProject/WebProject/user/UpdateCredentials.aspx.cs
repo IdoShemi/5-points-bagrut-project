@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace WebProject.user
 {
-    public partial class UpdateUserPage : System.Web.UI.Page
+    public partial class UpdateCredentials : System.Web.UI.Page
     {
         enum Months
         {
@@ -28,10 +28,10 @@ namespace WebProject.user
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["adminName"] == null)
-                Response.Redirect("/errorPage.aspx?m=3");
+            if (Session["userName"] == null)
+                Response.Redirect("/errorPage.aspx?m=2");
 
-            Application["userToUpdate"] = Request.QueryString["un"];
+            Application["userToUpdate"] = Session["userName"].ToString();
             if (!IsPostBack)
             {
                 UpdateData(Application["userToUpdate"].ToString());
@@ -68,7 +68,6 @@ namespace WebProject.user
             }
         }
 
-
         protected void Updatebutton(object sender, EventArgs e)
         {
             string newUserName = InsertName.Text;
@@ -94,14 +93,13 @@ namespace WebProject.user
                 Con1.Close();
 
 
-                
+
 
             }
             catch (Exception ex)
             {
                 Response.Write(ex.Message);
             }
-            Response.Redirect("/admin/ShowUsersPage.aspx");
         }
 
         protected void UpdateData(string user)
@@ -154,6 +152,20 @@ namespace WebProject.user
                 Con1.Close();
 
             }
+        }
+
+
+
+        protected void Delbutton(object sender, EventArgs e)
+        {
+            OleDbConnection Con1 = new OleDbConnection();
+            Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
+            Con1.Open();
+            string sqlstring = "DELETE * FROM users WHERE Myusername='" + Session["userName"].ToString() + "';";
+            OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);
+            int y = 0;
+            y = cmd.ExecuteNonQuery();
+            Response.Write(y);
         }
     }
 }

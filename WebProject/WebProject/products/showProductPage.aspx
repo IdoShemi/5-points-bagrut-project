@@ -73,7 +73,7 @@
                     ₪<br />
                 </div>
                 <div style="text-align: center; margin-top: 10px;">
-                    <asp:Button class="add-to-basket" runat="server" Text="Add To Basket" OnClick="UpdateBasket" />
+                    <asp:Button class="add-to-basket" ID="addbtn" runat="server" Text="Add To Basket" OnClick="UpdateBasket" />
                 </div>
             </div>
             <asp:Image ID="Image1" runat="server" Style="width: 25%; height: auto; margin-right: 25px;" />

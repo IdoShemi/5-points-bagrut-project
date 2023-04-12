@@ -14,7 +14,7 @@ namespace WebProject.user
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["userName"] == null)
-                Response.Redirect("/SignInUserPage.aspx");
+                Response.Redirect("/errorPage.aspx?m=2");
             if(Session["basket"] == null)
             {
                 basket bs = new basket();

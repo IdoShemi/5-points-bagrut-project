@@ -12,6 +12,8 @@ namespace WebProject.categories
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["adminName"] == null)
+                Response.Redirect("/errorPage.aspx?m=3");
             if (!IsPostBack)
             {
                 OleDbConnection Con1 = new OleDbConnection();

@@ -42,6 +42,6 @@
         <div id="container">
       <h1>Order Sent!</h1>
       <p>Your order with order number: <strong><asp:Literal runat="server" ID="l1"></asp:Literal></strong> has been successfully sent to sellers.</p>
-      <button onclick="location.href='/HomePage.aspx'">Continue Shopping</button>
+      <button onclick="location.href='/Homepage.aspx'">Continue Shopping</button>
     </div>
 </asp:Content>

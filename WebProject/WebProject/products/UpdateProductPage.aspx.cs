@@ -14,6 +14,11 @@ namespace WebProject.products
         public static string filename = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["sellerName"] == null && Session["adminName"] == null)
+            {
+                Response.Redirect("/errorPage.aspx?m=4");
+            }
+
             if (!IsPostBack)
             {
                 OleDbConnection Con1 = new OleDbConnection();

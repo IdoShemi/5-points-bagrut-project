@@ -12,6 +12,8 @@ namespace WebProject.user
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["sellerName"] == null && Session["userName"] == null && Session["adminName"] == null)
+                Response.Redirect("/errorPage.aspx?m=4");
             string sqlstring;
             if (!IsPostBack)
             {

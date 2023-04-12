@@ -15,6 +15,9 @@ namespace WebProject.products
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["sellerName"] == null && Session["userName"] == null && Session["adminName"] == null)
+                Response.Redirect("/errorPage.aspx?m=4");
+
             productCode = Request.QueryString["pc"];
             OleDbConnection Con1 = new OleDbConnection();
             Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
@@ -37,6 +40,9 @@ namespace WebProject.products
             string filename = Dr["imageCode"].ToString();
             Image1.ImageUrl = filename;
             Con1.Close();
+
+            if (Session["userName"] == null)
+                addbtn.Visible = false;
 
 
         }

@@ -15,9 +15,9 @@ namespace WebProject
             string linksites = "";
             if (Session["userName"] != null)
             { // user pages
-                linksites = "<a href='/index.html' class='nav-item nav-link'>Home</a>" +
+                linksites = "<a href='/Homepage.aspx' class='nav-item nav-link'>Home</a>" +
                     "<a href='/user/ProductsCatalogPage.aspx' class='nav-item nav-link'>Catalog</a>" +
-                            "<a href='/user/UpdateUserCredintialsPage.aspx' class='nav-item nav-link'>Update Credintials</a>" +
+                            "<a href='/user/UpdateCredentials.aspx' class='nav-item nav-link'>Update Credintials</a>" +
                             "<a href='/user/TrackOrders.aspx' class='nav-item nav-link'>Track Orders</a>";
 
                 UpdateBasketText();
@@ -25,7 +25,7 @@ namespace WebProject
             }
             else if (Session["sellerName"] != null)
             { // seller pages
-                linksites = "<a href='/index.html' class='nav-item nav-link'>Home</a>" +
+                linksites = "<a href='/Homepage.aspx' class='nav-item nav-link'>Home</a>" +
                     "<a href='/products/InsertProductPage.aspx' class='nav-item nav-link'>Insert Product</a>" +
                             "<a href='/products/MangeProductsPage.aspx' class='nav-item nav-link'>Manage Products</a>" +
                             "<a href='/seller/UpdateDeleteSeller.aspx' class='nav-item nav-link'>Update Seller credentials</a>" +
@@ -38,8 +38,9 @@ namespace WebProject
             }
             else if (Session["adminName"] != null)
             {
-                linksites = "<a href='/index.html' class='nav-item nav-link'>Home</a>"+
-                    "<a href='/admin/adminHub.aspx' class='nav-item nav-link'>admin hub</a>"; // add admin pages for now
+                linksites = "<a href='/Homepage.aspx' class='nav-item nav-link'>Home</a>" +
+                    "<a href='/admin/adminHub.aspx' class='nav-item nav-link'>admin hub</a>"+
+                    "<a href='/categories/AddCategoryPage.aspx' class='nav-item nav-link'>add category</a>"; // add admin pages for now
 
 
 
@@ -48,7 +49,7 @@ namespace WebProject
             }
             else
             {// unregistered user
-                linksites = "<a href='/index.html' class='nav-item nav-link'>Home</a>" +
+                linksites = "<a href='/Homepage.aspx' class='nav-item nav-link'>Home</a>" +
                 "<a href='/SignUp.aspx' class='nav-item nav-link'>Sign Up</a>" +
                 "<a href='/SignIn.aspx' class='nav-item nav-link'>Sign In</a>";
             }
@@ -72,7 +73,7 @@ namespace WebProject
         protected int CountNotifications()
         {
             OleDbConnection Con1 = new OleDbConnection();
-            Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
+            Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("~/database.accdb");
             Con1.Open();
             string sqlstring = $"select * from Responses WHERE Mto='{Session["sellerName"].ToString()}'"; OleDbCommand cmd = new OleDbCommand(sqlstring, Con1);
             OleDbDataReader Dr = cmd.ExecuteReader();

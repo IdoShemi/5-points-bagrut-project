@@ -39,6 +39,7 @@ namespace WebProject.seller
                 category.SelectedValue = Dr["category"].ToString();
                 InsertSerialNum.Text = Dr["productCode"].ToString();
                 InsertAmount.Text = Dr["availiableamount"].ToString();
+                InsertPrice.Text = Dr["Price"].ToString();
 
                 filename = Dr["imageCode"].ToString();
                 Image1.ImageUrl = filename;
@@ -82,7 +83,7 @@ namespace WebProject.seller
 
                 string sqlstring = $"UPDATE products SET productName = '{InsertProductName.Text}', category = '{category.SelectedValue}'," +
                     $" subcategory = '{subcategory.SelectedValue}', productCode = '{InsertSerialNum.Text}', ImageCode ='{filename}', " +
-                    $"availiableamount='{InsertAmount.Text}' WHERE productCode ='{productCode}'";
+                    $"availiableamount='{InsertAmount.Text}', Price ='{InsertPrice.Text}' WHERE productCode ='{productCode}'";
 
                 Response.Write(sqlstring);
                 Con1.Open();

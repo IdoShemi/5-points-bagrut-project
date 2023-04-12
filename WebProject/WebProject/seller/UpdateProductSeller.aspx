@@ -19,6 +19,7 @@
             <br />
 
             <span class="inputText">מספר סידורי</span><asp:TextBox ID="InsertSerialNum" runat="server" Text=""></asp:TextBox><br />
+            <span class="inputText">מחיר: </span><asp:TextBox ID="InsertPrice" runat="server" Text=""></asp:TextBox><br />
 
             <span class="inputText">תמונה</span>
             <asp:FileUpload ID="FileUpload1" runat="server" accept="image/*" />

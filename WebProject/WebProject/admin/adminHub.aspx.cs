@@ -11,7 +11,8 @@ namespace WebProject.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["adminName"] == null)
+                Response.Redirect("/errorPage.aspx?m=3");
         }
     }
 }

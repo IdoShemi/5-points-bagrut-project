@@ -7,12 +7,12 @@ using System.Web.UI.WebControls;
 
 namespace WebProject
 {
-    public partial class LogOutPage : System.Web.UI.Page
+    public partial class Homepage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Abandon();
-            Response.Redirect("/Homepage.aspx"); // change to home page when existed
+            if (Session["adminName"] != null || Session["sellerName"] != null || Session["userName"] != null)
+                mydiv.Visible = false;
         }
     }
 }

@@ -14,7 +14,8 @@ namespace WebProject.categories
         protected void Page_Load(object sender, EventArgs e)
         {
             // add admin permission
-
+            if (Session["adminName"] == null)
+                Response.Redirect("/errorPage.aspx?m=3");
 
             OleDbConnection Con = new OleDbConnection();
             Con.ConnectionString = @"provider=microsoft.ACE.oledb.12.0;data source=" + Server.MapPath("") + "\\..\\database.accdb";

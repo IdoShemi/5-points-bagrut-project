@@ -1,5 +1,4 @@
-﻿<%@ Page ViewStateMode="Disabled" Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="orders.aspx.cs" Inherits="WebProject.seller.orders" %>
-
+﻿<%@ Page ViewStateMode="Disabled" Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ManageOrders.aspx.cs" Inherits="WebProject.admin.ManageOrders" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .order {
@@ -72,7 +71,6 @@
             }
     </style>
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
 
@@ -89,6 +87,7 @@
                         <table align='center'>
                             <tr style='background: #ddd; color: black;'>
                                 <td>Order ID</td>
+                                <td>Seller Name</td>
                                 <td>User Name</td>
                                 <td>address</td>
                                 <td>Order Date</td>
@@ -101,6 +100,7 @@
                     <itemtemplate>
                         <tr>
                             <td><%# Eval("order_id") %></td>
+                            <td><%# Eval("seller") %></td>
                             <td><%# Eval("user_name") %></td>
                             <td><%# Eval("address") %>, <%# Eval("city") %></td>
                             <td><%# Eval("order_date") %></td>
