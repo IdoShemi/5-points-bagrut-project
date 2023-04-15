@@ -12,6 +12,9 @@ namespace WebProject.seller
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["adminName"] == null)
+                Response.Redirect("/errorPage.aspx?m=3");
             UserName.Enabled = false;
             InsPass.Enabled = false;
             SellerName.Enabled = false;
@@ -38,7 +41,7 @@ namespace WebProject.seller
 
                 string sqlstring = $"UPDATE sellers SET Mypassword = '{InsPass.Text}', MySellerName = '{SellerName.Text}" +
                     $"', BankAccountNum = '{BankAccount.Text}', AverageDeliveryTime = '{avgDelivery.Text}', MyAddress = '{InsertAddress.Text}', MyEmail ='{Mymail.Text}', " +
-                    $"myphonenumber='{Phone.Text}', MyCity='{InsertCity.Text}' WHERE Myusername ='{UserName.Text}'";
+                    $"myphonenumber='{Phone.Text}', MyCity='{InsertCity.Text}',Myusername ='{UserName.Text}' WHERE Myusername ='{InsertName.Text}'";
 
 
                 InsertName.Enabled = true;

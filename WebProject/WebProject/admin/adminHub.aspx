@@ -60,7 +60,7 @@
 
 
             <div class="col-lg-2">
-                <a href="SignInSellerPage.aspx">
+                <a href="/admin/ShowSellers.aspx">
                     <button class="btn2 btn-block btn-primary font-weight-bold py-3">Control
                         <br />
                         Sellers</button>
@@ -80,7 +80,7 @@
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-lg-2">
-                <a href="SignInSellerPage.aspx">
+                <a href="/admin/ShowProducts.aspx">
                     <button class="btn2 btn-block btn-primary font-weight-bold py-3">Control
                         <br />
                         Products</button>
@@ -88,7 +88,7 @@
             </div>
 
             <div class="col-lg-2">
-                <a href="SignInSellerPage.aspx">
+                <a href="/admin/adminReports.aspx">
                     <button class="btn2 btn-block btn-primary font-weight-bold py-3">View
                         <br />
                         Reports</button>

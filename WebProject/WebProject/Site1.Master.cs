@@ -40,6 +40,7 @@ namespace WebProject
             {
                 linksites = "<a href='/Homepage.aspx' class='nav-item nav-link'>Home</a>" +
                     "<a href='/admin/adminHub.aspx' class='nav-item nav-link'>admin hub</a>"+
+                    "<a href='/seller/UpdateDeleteSeller2.aspx' class='nav-item nav-link'>update seller</a>"+
                     "<a href='/categories/AddCategoryPage.aspx' class='nav-item nav-link'>add category</a>"; // add admin pages for now
 
 

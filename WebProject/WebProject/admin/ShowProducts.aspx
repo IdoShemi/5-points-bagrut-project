@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="MangeProductsPage.aspx.cs" Inherits="WebProject.products.MangeProductsPage" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ShowProducts.aspx.cs" Inherits="WebProject.admin.ShowProducts" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 align="center">ניהול מוצרים</h1>
     <form id="form1" runat="server">
@@ -11,10 +12,14 @@
                 DataKeyField="productCode">
                 <ItemTemplate>
 
-                    <div style="border: 2px dashed black; height: 340px; width: 250px; margin: 5px; padding: 5px;">
+                    <div style="border: 2px dashed black; height: 380px; width: 250px; margin: 5px; padding: 5px;">
                         <div style="text-align: center; padding-bottom: 5px; font-size: 1.5rem; direction: rtl;">
                             <asp:Label ID="Label2" runat="server"
                                 Text='<%# DataBinder.Eval(Container.DataItem,"productName")%>' ForeColor="Blue"></asp:Label><br />
+
+                            מוכר: <asp:Label ID="Label3" runat="server"
+                                Text='<%# DataBinder.Eval(Container.DataItem,"productSeller")%>' ForeColor="Blue"></asp:Label><br />
+
                             <div style="font-size: 1.3rem;">
                                 מחיר:
                                 <asp:Label ID="Label1" runat="server"

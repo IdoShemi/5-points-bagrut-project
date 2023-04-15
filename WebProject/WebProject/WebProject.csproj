@@ -46,6 +46,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -69,7 +70,10 @@
   <ItemGroup>
     <Content Include="admins.xml" />
     <Content Include="admin\adminHub.aspx" />
+    <Content Include="admin\adminReports.aspx" />
     <Content Include="admin\ManageOrders.aspx" />
+    <Content Include="admin\ShowProducts.aspx" />
+    <Content Include="admin\ShowSellers.aspx" />
     <Content Include="categories\AddCategoryPage.aspx" />
     <Content Include="categories\AskCategory.aspx" />
     <Content Include="categories\ManageCategoryRequests.aspx" />
@@ -132,12 +136,33 @@
     <Compile Include="admin\adminHub.aspx.designer.cs">
       <DependentUpon>adminHub.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\adminReports.aspx.cs">
+      <DependentUpon>adminReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\adminReports.aspx.designer.cs">
+      <DependentUpon>adminReports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\ManageOrders.aspx.cs">
       <DependentUpon>ManageOrders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\ManageOrders.aspx.designer.cs">
       <DependentUpon>ManageOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ShowProducts.aspx.cs">
+      <DependentUpon>ShowProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ShowProducts.aspx.designer.cs">
+      <DependentUpon>ShowProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ShowSellers.aspx.cs">
+      <DependentUpon>ShowSellers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ShowSellers.aspx.designer.cs">
+      <DependentUpon>ShowSellers.aspx</DependentUpon>
     </Compile>
     <Compile Include="basket.cs" />
     <Compile Include="categories\AddCategoryPage.aspx.cs">
