@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Threading;
@@ -28,8 +29,62 @@ namespace WebProject.categories
             DataList2.DataSource = dr1;
             DataList2.DataBind();
 
+
+            if (!IsPostBack)
+            {
+                string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
+                string sql = "SELECT * FROM categories ORDER BY mycategoryname";
+
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    connection.Open();
+                    OleDbCommand command = new OleDbCommand(sql, connection);
+                    OleDbDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            string categoryName = reader["mycategoryname"].ToString();
+                            string subCategorySql = $"SELECT * FROM subcategories WHERE mycatergoryname='{categoryName}'";
+                            OleDbCommand subCategoryCommand = new OleDbCommand(subCategorySql, connection);
+                            OleDbDataReader subCategoryReader = subCategoryCommand.ExecuteReader();
+
+                            categoryList.Text +=($"<h2>{categoryName}</h2>");
+
+                            if (subCategoryReader.HasRows)
+                            {
+                                categoryList.Text +=("<ul>");
+
+                                while (subCategoryReader.Read())
+                                {
+                                    string subCategoryName = subCategoryReader["mysubcategoryname"].ToString();
+                                    categoryList.Text +=($"<li>{subCategoryName}</li>");
+                                }
+
+                                categoryList.Text +=("</ul>");
+                            }
+                            else
+                            {
+                                categoryList.Text +=("<p>No subcategories found.</p>");
+                            }
+
+                            subCategoryReader.Close();
+                        }
+                    }
+                    else
+                    {
+                        categoryList.Text +=("<p>No categories found.</p>");
+                    }
+
+                    reader.Close();
+                }
+            }
+
             
         }
+
+        
 
         protected void DataList2_ItemCommand(object source, DataListCommandEventArgs e)
         {

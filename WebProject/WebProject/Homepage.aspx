@@ -1,71 +1,88 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Homepage.aspx.cs" Inherits="WebProject.Homepage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-}
+<style>
+    .product-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .product-item {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 300px;
+        text-align: center;
+    }
+    .product-image img {
+        max-width: 100%;
+        height: auto;
+    }
+    .product-name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .product-seller {
+        margin-top: 10px;
+    }
+    .product-quantity {
+        margin-top: 10px;
+        font-weight: bold;
+    }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: #333;
-  color: #fff;
-}
+    .header {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-.logo img {
-  height: 50px;
-}
+    .header__welcome {
+      text-align: center;
+    }
 
-.cart-icon img {
-  height: 30px;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 100px);
-}
-
-h1 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-btn, .signup-btn {
-  padding: 0.5rem 1rem;
-  margin: 0 1rem;
-  border: none;
-  background-color: #333;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.login-btn:hover, .signup-btn:hover {
-  background-color: #555;
-}
-    </style>
+    .header__welcome-text {
+      margin: 0;
+      font-size: 36px;
+      font-weight: 700;
+      color: #333;
+      text-transform: uppercase;
+    }
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <main>
-    <h1>Welcome to My Shopping Website</h1>
-    <div class="buttons" id="mydiv" runat="server">
-      <a href="SignIn.aspx"><button class="login-btn">Sign In</button>
-      <a href="SignUp.aspx"><button class="signup-btn">Sign Up</button></a>
-    </div>
-  </main>
+    <header class="header">
+  <div class="header__welcome">
+    <h1 class="header__welcome-text">Welcome to AllBuy</h1>
+  </div>
+</header><br />
+
+    <div style="max-width: 800px; margin: 0 auto;">
+    <h1>Top 5 Best-Selling Products This Month</h1>
+    <asp:Repeater ID="repeater2" runat="server">
+        <headertemplate>
+            <ul class="product-list">
+        </headertemplate>
+        <itemtemplate>
+            <a style="all:unset; cursor:pointer" title="show product" href="/products/showProductPage.aspx?pc=<%# Eval("productCode") %>">
+            <li class="product-item">
+                <div class="product-image">
+                    <img src='<%# "/images" + Eval("ImageCode") %>' alt='<%# Eval("product_name") %>'>
+                </div>
+                <div class="product-name"><%# Eval("product_name") %></div>
+                <div class="product-seller">Seller: <%# Eval("seller") %></div>
+                <div class="product-quantity">Total Quantity Sold: <%# Eval("total_quantity") %></div>
+            </li>
+                </a>
+        </itemtemplate>
+        <footertemplate>
+            </ul>
+        </footertemplate>
+    </asp:Repeater>
+</div>
+
+
 </asp:Content>

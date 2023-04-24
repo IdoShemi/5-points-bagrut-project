@@ -15,8 +15,8 @@ namespace WebProject.products
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["sellerName"] == null && Session["userName"] == null && Session["adminName"] == null)
-                Response.Redirect("/errorPage.aspx?m=4");
+            //if (Session["sellerName"] == null && Session["userName"] == null && Session["adminName"] == null)
+            //    Response.Redirect("/errorPage.aspx?m=4");
 
             productCode = Request.QueryString["pc"];
             OleDbConnection Con1 = new OleDbConnection();

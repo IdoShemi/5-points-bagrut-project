@@ -22,54 +22,43 @@ namespace WebProject.user
 
         protected void Selectbutton(object sender, EventArgs e)
         {
-            usersRepeater.Visible = true;
+            string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
 
-            if (InsertMail.Text.ToString() != "")
+            string whereClause = "WHERE";
+            if (!string.IsNullOrWhiteSpace(InsertMail.Text))
+                whereClause += $" myemail='{InsertMail.Text}'";
+            if (!string.IsNullOrWhiteSpace(Insertphonenumber.Text))
             {
-                OleDbConnection Con1 = new OleDbConnection();
-                Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
-                Con1.Open();
-                string sqlstring = $"SELECT * FROM users WHERE myemail='{InsertMail.Text.ToString()}'";
-                OleDbCommand Cmd = new OleDbCommand(sqlstring, Con1);
-                OleDbDataReader dr = Cmd.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    l1.Text = "";
-                    usersRepeater.DataSource = dr;
-                    usersRepeater.DataBind();
-                    Con1.Close();
-                }
-                else
-                {
-                    l1.Text = ("NOT found");
-                    usersRepeater.Visible = false;
-                    Con1.Close();
-                }
+                if (whereClause != "WHERE")
+                    whereClause += "AND";
+                whereClause += $" myphonenumber='{Insertphonenumber.Text}'";
             }
-            else
+
+                
+            if (whereClause == "WHERE")
+                whereClause = "";
+
+
+            string sql = $"SELECT * FROM users {whereClause}";
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                OleDbConnection Con1 = new OleDbConnection();
-                Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
-                Con1.Open();
-                string sqlstring = "SELECT * FROM users";
-                OleDbCommand Cmd = new OleDbCommand(sqlstring, Con1);
-                OleDbDataReader dr = Cmd.ExecuteReader();
-                if (dr.HasRows)
+                connection.Open();
+                OleDbCommand command = new OleDbCommand(sql, connection);
+                OleDbDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                    l1.Text = "";
-                    usersRepeater.DataSource = dr;
+                    usersRepeater.Visible = true;
+                    usersRepeater.DataSource = reader;
                     usersRepeater.DataBind();
-                    Con1.Close();
                 }
                 else
                 {
                     usersRepeater.Visible = false;
-                    l1.Text = ("NOT found");
-                    Con1.Close();
+                    l1.Text = "No users found.";
                 }
-
             }
-
         }
 
 

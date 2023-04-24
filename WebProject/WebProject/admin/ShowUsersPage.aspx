@@ -28,7 +28,9 @@
     <form id="form1" runat="server">
         <div>
             <div class="btn33Container">
-                <asp:Button class="button-33" ID="Button1" runat="server" Text="לחץ להצגת משתמשים" OnClick="Selectbutton" /><asp:TextBox Style="margin-left: 20px;" ID="InsertMail" runat="server" PlaceHolder="Mail" Text=""></asp:TextBox>
+                <asp:Button class="button-33" ID="Button1" runat="server" Text="לחץ להצגת משתמשים" OnClick="Selectbutton" />
+                <asp:TextBox Style="margin-left: 20px;" ID="InsertMail" runat="server" PlaceHolder="Mail" Text=""></asp:TextBox>
+                <asp:TextBox Style="margin-left: 20px;" ID="Insertphonenumber" runat="server" PlaceHolder="phone number" Text=""></asp:TextBox>
                 <br />
                 <br />
                 <asp:Literal ID="l1" runat="server"></asp:Literal>
