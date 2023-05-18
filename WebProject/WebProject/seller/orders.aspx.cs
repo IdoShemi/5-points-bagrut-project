@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using WebProject.Shippy;
 namespace WebProject.seller
 {
     public partial class orders : System.Web.UI.Page
@@ -44,6 +44,9 @@ namespace WebProject.seller
                 OleDbConnection Con1 = new OleDbConnection();
                 Con1.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0; Data source=" + Server.MapPath("") + "\\..\\database.accdb";
                 string sqlstring = $"UPDATE orders SET order_status = 'delivered' WHERE product_name = '{values[0]}' AND order_id= {values[1]}";
+
+                ShippySoapClient s = new ShippySoapClient();
+                s.DeleteShipmentData(values[1], values[0]);
 
                 //string sqlstring = "update orders Set order_status='delivered' WHERE product_name='" +  + "' and order_id='" + values[1] +"';";
                 Con1.Open();

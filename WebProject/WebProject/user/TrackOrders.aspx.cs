@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using WebProject.Shippy;
 namespace WebProject.user
 {
     public partial class TrackOrders : System.Web.UI.Page
@@ -30,6 +30,13 @@ namespace WebProject.user
             usersRepeater.DataBind();
             Con.Close();
         }
+        protected string GetShipmentCode(string orderId, string productName)
+        {
+            ShippySoapClient s = new ShippySoapClient();
+            return s.ReadShipmentIdByOrderIdAndProductName(orderId, productName);
+        }
+
+
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {

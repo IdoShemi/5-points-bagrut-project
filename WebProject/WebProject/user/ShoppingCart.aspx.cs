@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebProject.Shippy;
 
 namespace WebProject.user
 {
@@ -250,6 +251,9 @@ namespace WebProject.user
             int y = 0;
             y = cmd1.ExecuteNonQuery();
             Con.Close();
+
+            ShippySoapClient s = new ShippySoapClient();
+            s.InsertShipmentData(userName, seller_name, address, city, prod_name, date, newcodenumber.ToString(), amount);
 
         }
 

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://shippy.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://shippy.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://shippy.org/">
+      <s:element name="InsertShipmentData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seller" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="productQuantity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertShipmentDataResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteShipmentData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteShipmentDataResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReadShipmentIdByOrderIdAndProductName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadShipmentIdByOrderIdAndProductNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadShipmentIdByOrderIdAndProductNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertShipmentDataSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertShipmentData" />
+  </wsdl:message>
+  <wsdl:message name="InsertShipmentDataSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertShipmentDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteShipmentDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteShipmentData" />
+  </wsdl:message>
+  <wsdl:message name="DeleteShipmentDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteShipmentDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadShipmentIdByOrderIdAndProductNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadShipmentIdByOrderIdAndProductName" />
+  </wsdl:message>
+  <wsdl:message name="ReadShipmentIdByOrderIdAndProductNameSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadShipmentIdByOrderIdAndProductNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ShippySoap">
+    <wsdl:operation name="InsertShipmentData">
+      <wsdl:input message="tns:InsertShipmentDataSoapIn" />
+      <wsdl:output message="tns:InsertShipmentDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShipmentData">
+      <wsdl:input message="tns:DeleteShipmentDataSoapIn" />
+      <wsdl:output message="tns:DeleteShipmentDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadShipmentIdByOrderIdAndProductName">
+      <wsdl:input message="tns:ReadShipmentIdByOrderIdAndProductNameSoapIn" />
+      <wsdl:output message="tns:ReadShipmentIdByOrderIdAndProductNameSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ShippySoap" type="tns:ShippySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertShipmentData">
+      <soap:operation soapAction="http://shippy.org/InsertShipmentData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShipmentData">
+      <soap:operation soapAction="http://shippy.org/DeleteShipmentData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadShipmentIdByOrderIdAndProductName">
+      <soap:operation soapAction="http://shippy.org/ReadShipmentIdByOrderIdAndProductName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ShippySoap12" type="tns:ShippySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertShipmentData">
+      <soap12:operation soapAction="http://shippy.org/InsertShipmentData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShipmentData">
+      <soap12:operation soapAction="http://shippy.org/DeleteShipmentData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadShipmentIdByOrderIdAndProductName">
+      <soap12:operation soapAction="http://shippy.org/ReadShipmentIdByOrderIdAndProductName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Shippy">
+    <wsdl:port name="ShippySoap" binding="tns:ShippySoap">
+      <soap:address location="https://localhost:44351/Shippy.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ShippySoap12" binding="tns:ShippySoap12">
+      <soap12:address location="https://localhost:44351/Shippy.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

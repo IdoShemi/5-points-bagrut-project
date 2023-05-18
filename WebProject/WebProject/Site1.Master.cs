@@ -29,6 +29,7 @@ namespace WebProject
                     "<a href='/products/InsertProductPage.aspx' class='nav-item nav-link'>Insert Product</a>" +
                             "<a href='/products/MangeProductsPage.aspx' class='nav-item nav-link'>Manage Products</a>" +
                             "<a href='/seller/UpdateDeleteSeller.aspx' class='nav-item nav-link'>Update Seller credentials</a>" +
+                            "<a href='/seller/sellerReport.aspx' class='nav-item nav-link'>Show Reports</a>" +
                             "<a href='/categories/AskCategory.aspx' class='nav-item nav-link'>Ask Category</a>"+
                             "<a href='/seller/orders.aspx' class='nav-item nav-link'>Manage Orders</a>";
                 Literal3.Text = "<a href='/categories/Notifications.aspx' class='btn px-0 ml-3'>" +

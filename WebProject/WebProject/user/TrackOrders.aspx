@@ -93,6 +93,7 @@
                                 <td>Product Name</td>
                                 <td>Product Quantity</td>
                                 <td>Order Status</td>
+                                <td>Shipment Code</td>
                             </tr>
                     </headertemplate>
                     <itemtemplate>
@@ -104,6 +105,7 @@
                             <td><%# Eval("product_name") %></td>
                             <td><%# Eval("product_quantity") %></td>
                             <td><%# Eval("order_status") %></td>
+                            <td><%# GetShipmentCode(Eval("order_id").ToString(), Eval("product_name").ToString()) %></td>
                         </tr>
                     </itemtemplate>
                     <footertemplate>
