@@ -121,6 +121,7 @@
     <Content Include="seller\sellerReport.aspx" />
     <Content Include="seller\UpdateDeleteSeller2.aspx" />
     <Content Include="seller\UpdateProductSeller.aspx" />
+    <Content Include="seller\UpdateSellerCred.aspx" />
     <Content Include="SignIn.aspx" />
     <Content Include="SignInSellerPage.aspx" />
     <Content Include="SignInUserPage.aspx" />
@@ -291,6 +292,13 @@
     </Compile>
     <Compile Include="seller\UpdateProductSeller.aspx.designer.cs">
       <DependentUpon>UpdateProductSeller.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="seller\UpdateSellerCred.aspx.cs">
+      <DependentUpon>UpdateSellerCred.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seller\UpdateSellerCred.aspx.designer.cs">
+      <DependentUpon>UpdateSellerCred.aspx</DependentUpon>
     </Compile>
     <Compile Include="SignIn.aspx.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>
