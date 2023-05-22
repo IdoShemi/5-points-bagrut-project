@@ -52,6 +52,8 @@ namespace WebProject
             else
             {// unregistered user
                 linksites = "<a href='/Homepage.aspx' class='nav-item nav-link'>Home</a>" +
+                "<a href='/user/ProductsCatalogPage.aspx' class='nav-item nav-link'>Catalog</a>" +
+
                 "<a href='/SignUp.aspx' class='nav-item nav-link'>Sign Up</a>" +
                 "<a href='/SignIn.aspx' class='nav-item nav-link'>Sign In</a>";
             }
